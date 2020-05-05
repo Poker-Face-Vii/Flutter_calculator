@@ -24,6 +24,7 @@ abstract class NormalCalculatorState with Store {
     display = display + value;
     expInput = expInput + value;
     operationOn = false;
+    isDotOn = false;
   }
 
   @action
@@ -31,15 +32,16 @@ abstract class NormalCalculatorState with Store {
     display = '';
     expInput = '';
     equalResult = 0;
+    operationOn = null;
+    isDotOn = null;
   }
 
   @action
   void delete() {
     display =
         (display.length > 0) ? (display.substring(0, display.length - 1)) : "";
-    expInput = (expInput.length > 0)
-        ? (expInput.substring(0, expInput.length - 1))
-        : "";
+    expInput =
+        (expInput.length > 0) ? expInput.substring(0, expInput.length - 1) : "";
   }
 
   @action
@@ -47,15 +49,15 @@ abstract class NormalCalculatorState with Store {
     if (val == '+' || val == '-' || val == '/' || val == '*') {
       if (operationOn == true) {
       } else if (operationOn == false) {
-        display = display + ' ' + showVal + ' ';
+        display = display + showVal;
         expInput = expInput + val;
         operationOn = true;
       }
     } else {
-      display = display + ' ' + showVal + ' ';
+      display = display + showVal;
       expInput = expInput + val;
     }
-    isDotOn =false;
+    isDotOn = false;
   }
 
   @action
@@ -88,10 +90,11 @@ abstract class NormalCalculatorState with Store {
       expInput = '';
       operationOn = null;
       isDotOn = null;
-      // equalResult=null;
     } catch (e) {
       display = 'Error !!';
       equalResult = null;
+      operationOn = null;
+      isDotOn = null;
     }
   }
 }

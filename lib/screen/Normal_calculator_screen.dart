@@ -92,7 +92,8 @@ class _NumPad extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   CalculatorButton(
-                    onPressed: ()=>state.delete(),
+                    /*//todo: this button function shuld FIX -- it need to understand that the last element is operator or a number*/
+                    // onPressed: ()=>state.delete(),
                     color: Colors.amber.withAlpha(60),textColor: Colors.amber,
                     flex: 0,
                     value: '⌫',
@@ -248,8 +249,9 @@ class _NumPad extends StatelessWidget {
                     flex: 2,
                   ),
                   CalculatorButton(
-                    onPressed: ()=> state.dot('.', '.')
-                    ,
+                    // todo: this doesn't work properly well 
+                    // onPressed: ()=> state.dot('.', '.'),
+                    
                     value: '.',
                   ),
                   CalculatorButton(
