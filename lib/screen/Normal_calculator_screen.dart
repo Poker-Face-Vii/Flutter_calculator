@@ -248,7 +248,7 @@ class _NumPad extends StatelessWidget {
                     flex: 2,
                   ),
                   CalculatorButton(
-                    onPressed: ()=> state.operation('.', '.')
+                    onPressed: ()=> state.dot('.', '.')
                     ,
                     value: '.',
                   ),

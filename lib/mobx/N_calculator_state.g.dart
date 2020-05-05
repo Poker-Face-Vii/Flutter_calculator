@@ -26,6 +26,23 @@ mixin _$NCS on NormalCalculatorState, Store {
     }, _$displayAtom, name: '${_$displayAtom.name}_set');
   }
 
+  final _$expInputAtom = Atom(name: 'NormalCalculatorState.expInput');
+
+  @override
+  String get expInput {
+    _$expInputAtom.context.enforceReadPolicy(_$expInputAtom);
+    _$expInputAtom.reportObserved();
+    return super.expInput;
+  }
+
+  @override
+  set expInput(String value) {
+    _$expInputAtom.context.conditionallyRunInAction(() {
+      super.expInput = value;
+      _$expInputAtom.reportChanged();
+    }, _$expInputAtom, name: '${_$expInputAtom.name}_set');
+  }
+
   final _$equalResultAtom = Atom(name: 'NormalCalculatorState.equalResult');
 
   @override
@@ -41,6 +58,40 @@ mixin _$NCS on NormalCalculatorState, Store {
       super.equalResult = value;
       _$equalResultAtom.reportChanged();
     }, _$equalResultAtom, name: '${_$equalResultAtom.name}_set');
+  }
+
+  final _$operationOnAtom = Atom(name: 'NormalCalculatorState.operationOn');
+
+  @override
+  bool get operationOn {
+    _$operationOnAtom.context.enforceReadPolicy(_$operationOnAtom);
+    _$operationOnAtom.reportObserved();
+    return super.operationOn;
+  }
+
+  @override
+  set operationOn(bool value) {
+    _$operationOnAtom.context.conditionallyRunInAction(() {
+      super.operationOn = value;
+      _$operationOnAtom.reportChanged();
+    }, _$operationOnAtom, name: '${_$operationOnAtom.name}_set');
+  }
+
+  final _$isDotOnAtom = Atom(name: 'NormalCalculatorState.isDotOn');
+
+  @override
+  bool get isDotOn {
+    _$isDotOnAtom.context.enforceReadPolicy(_$isDotOnAtom);
+    _$isDotOnAtom.reportObserved();
+    return super.isDotOn;
+  }
+
+  @override
+  set isDotOn(bool value) {
+    _$isDotOnAtom.context.conditionallyRunInAction(() {
+      super.isDotOn = value;
+      _$isDotOnAtom.reportChanged();
+    }, _$isDotOnAtom, name: '${_$isDotOnAtom.name}_set');
   }
 
   final _$NormalCalculatorStateActionController =
@@ -87,6 +138,16 @@ mixin _$NCS on NormalCalculatorState, Store {
   }
 
   @override
+  void dot(dynamic val, dynamic showVal) {
+    final _$actionInfo = _$NormalCalculatorStateActionController.startAction();
+    try {
+      return super.dot(val, showVal);
+    } finally {
+      _$NormalCalculatorStateActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void evaluate() {
     final _$actionInfo = _$NormalCalculatorStateActionController.startAction();
     try {
@@ -99,7 +160,7 @@ mixin _$NCS on NormalCalculatorState, Store {
   @override
   String toString() {
     final string =
-        'display: ${display.toString()},equalResult: ${equalResult.toString()}';
+        'display: ${display.toString()},expInput: ${expInput.toString()},equalResult: ${equalResult.toString()},operationOn: ${operationOn.toString()},isDotOn: ${isDotOn.toString()}';
     return '{$string}';
   }
 }
