@@ -1,6 +1,6 @@
 # Pocket_calculator
 Calculator App build by Flutter
 
-| Calculator Screen | ------------------ |
+| Calculator Screen | ----------------------------------------------------- |
 | --- | --------------------- |
-|![image](Screenshot_1588742476.png)|--------|
+|![image](Screenshot_1588742476.png)|---------------------------------------------|
