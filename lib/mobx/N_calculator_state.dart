@@ -24,7 +24,6 @@ abstract class NormalCalculatorState with Store {
     display = display + value;
     expInput = expInput + value;
     operationOn = false;
-    isDotOn = false;
   }
 
   @action
@@ -81,20 +80,22 @@ abstract class NormalCalculatorState with Store {
 
   @action
   void evaluate() {
-    try {
-      Parser p = Parser();
-      Expression exp = p.parse(expInput);
-      ContextModel cm = new ContextModel();
-      equalResult = exp.evaluate(EvaluationType.REAL, cm);
-      display = '';
-      expInput = '';
-      operationOn = null;
-      isDotOn = null;
-    } catch (e) {
-      display = 'Error !!';
-      equalResult = null;
-      operationOn = null;
-      isDotOn = null;
+    if (display == '') {
+    } else {
+      try {
+        Parser p = Parser();
+        Expression exp = p.parse(expInput);
+        ContextModel cm = new ContextModel();
+        equalResult = exp.evaluate(EvaluationType.REAL, cm);
+        display = '';
+        expInput = '';
+        operationOn = null;
+      } catch (e) {
+        display = 'Error !!';
+        equalResult = null;
+        operationOn = null;
+      }
     }
+      isDotOn = null;
   }
 }

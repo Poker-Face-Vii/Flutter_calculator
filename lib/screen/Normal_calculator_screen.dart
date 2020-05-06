@@ -250,7 +250,7 @@ class _NumPad extends StatelessWidget {
                   ),
                   CalculatorButton(
                     // todo: this doesn't work properly well 
-                    // onPressed: ()=> state.dot('.', '.'),
+                    onPressed: ()=> state.dot('.', '.'),
                     
                     value: '.',
                   ),
